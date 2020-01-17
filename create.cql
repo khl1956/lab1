@@ -9,7 +9,7 @@ CREATE TYPE IF NOT EXISTS info_type (
 	university text
 );
 
-//–≈¿À≤«Œ¬¿Õ≤  Œ–»—“”¬¿÷‹ ≤ “¿ ¬ À¿ƒ≈Õ≤ “»œ» ƒ¿Õ»’
+//√ê√Ö√Ä√ã¬≤√á√é√Ç√Ä√ç¬≤ √ä√é√ê√à√ë√í√ì√Ç√Ä√ñ√ú√ä¬≤ √í√Ä √Ç√ä√ã√Ä√Ñ√Ö√ç¬≤ √í√à√è√à √Ñ√Ä√ç√à√ï
 CREATE TABLE IF NOT EXISTS user_code (
 	email varchar, 
 	name varchar static,
@@ -17,40 +17,22 @@ CREATE TABLE IF NOT EXISTS user_code (
 	project_name text,	
 	programing_language varchar,
 	functions_names set<text>,
-	functions_ parametrs set<FROZEN<set<float>>>, 
-	classes_names set<test>,
+	functions_parametrs set<FROZEN<set<float>>>, 
+	classes_names set<text>,
 	PRIMARY KEY ((email), project_name)	
-	
-	patient_id varchar,
-	info FROZEN<info_type> static,
-	age int static,
-	temperature set<float> static,
-	pulse set<int> static,
-	pressure set<FROZEN<map<int,int>>> static,
-	symptom_id varchar,
-	description text,
-	PRIMARY KEY ((patient_id), symptom_id)
 );
 
 CREATE TABLE IF NOT EXISTS code_documentation (
 	project_name text,	
 	programing_language varchar static,
 	functions_names set<text> static,
-	functions_ parametrs set<FROZEN<set<float>>> static, 
-	classes_names set<test> static,
+	functions_parametrs set<FROZEN<set<float>>> static, 
+	classes_names set<text> static,
 	save_link varchar,
 	brief_desc text, 	
 	detailed_desc text,
-	recommendation text
+	recommendation text,
 	PRIMARY KEY ((project_name), save_link)
-	
-	
-	symptom_id varchar,
-	description text static,
-	disease_id varchar,
-	disease_name map<text,text>,
-	severity int,
-	PRIMARY KEY ((symptom_id), disease_id)
 );
 
 CREATE TABLE IF NOT EXISTS documentation_discusion (
@@ -62,23 +44,14 @@ CREATE TABLE IF NOT EXISTS documentation_discusion (
 	mark int, 
 	comment text,
 	PRIMARY KEY ((save_link), comment)
-	
-	symptom_id varchar,
-	description text static,
-	disease_id varchar,
-	disease_name map<text,text>,
-	severity int,
-	recommend_id varchar,
-	doctor text,
-	PRIMARY KEY ((symptom_id), disease_id, recommend_id)
 );
 
-//–≈¿À≤«Œ¬¿Õ»… À≤◊»À‹Õ» 
+//√ê√Ö√Ä√ã¬≤√á√é√Ç√Ä√ç√à√â √ã¬≤√ó√à√ã√ú√ç√à√ä
 CREATE TABLE IF NOT EXISTS count_of_comments (
 	save_link varchar,
 	comment text,
 	comments_count counter,
-	PRIMARY KEY ((save_link), discusion_tred)
+	PRIMARY KEY ((save_link), comment)
 );
 
 
