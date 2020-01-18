@@ -3,6 +3,8 @@ INSERT INTO labwork1."User_Group_Subject_Task_Statement_Rating" (
  full_name,
  password,
  role,
+ book_title,
+ author_list,
  group_name,
  group_user_count,
  subject_name,
@@ -17,6 +19,8 @@ INSERT INTO labwork1."User_Group_Subject_Task_Statement_Rating" (
   {"first_name": 'Bob', "last_name": 'Bob'},
   'qwerty',
   'student',
+  'kak stat uspeshnim',
+  [{"first_name": 'Bobos', "middle_name": 'Bobosovich', "last_name": 'Bobos'}, {"first_name": 'Boss', "middle_name": 'Bossovich', "last_name": 'Boss'}],
   'km-61',
   111,
   'matan',
@@ -86,6 +90,18 @@ INSERT INTO labwork1."User_Group_Subject_Task_Statement_Rating" (
   230,
   '2019-12-25',
   4
+ );
+
+INSERT INTO labwork1."Book" (
+ book_title,
+ author_list,
+ author_name,
+ author_country
+ ) VALUES (
+  'kak stat uspeshnim',
+    {"first_name": 'Bobos', "middle_name": 'Bobosovich', "last_name": 'Bobos'},
+  {"first_name": 'Bobos', "middle_name": 'Bobosovich', "last_name": 'Bobos'},
+  'USA'
  );
 
 SELECT * FROM labwork1."User_Group_Subject_Task_Statement_Rating";

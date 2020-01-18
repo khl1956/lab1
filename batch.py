@@ -65,6 +65,26 @@ INSERT INTO labwork1."User_Group_Subject_Task_Statement_Rating" (
   4
  );
  
+INSERT INTO labwork1."Book" (
+ book_title,
+ author_list,
+ author_name,
+ author_country
+ ) VALUES (
+  'kak stat uspeshnim',
+  [{"first_name": 'Bobos', "middle_name": 'Bobosovich', "last_name": 'Bobos'}, {"first_name": 'Boss', "middle_name": 'Bossovich', "last_name": 'Boss'}],
+  {"first_name": 'Bobos', "middle_name": 'Bobosovich', "last_name": 'Bobos'},
+  'USA'
+ );
+ 
+ DELETE
+ FROM labwork1."User_Group_Subject_Task_Statement_Rating"
+ WHERE email = 'Bob@Bob.com';
+ 
+DELETE group_user_count
+FROM labwork1."User_Group_Subject_Task_Statement_Rating"
+WHERE email = 'Bob@Bob.com';
+ 
 APPLY BATCH;
 """
 connection.execute(batch)
