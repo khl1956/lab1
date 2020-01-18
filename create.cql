@@ -8,8 +8,13 @@ CREATE TYPE IF NOT EXISTS labwork1.user_name_type(
 	lastname text
 );
 
+CREATE TYPE IF NOT EXISTS labwork1.team_member_type(
+    title text,
+    full_name text
+);
 
-CREATE TABLE IF NOT EXISTS labwork1."Presentation_Server"(
+
+CREATE TABLE IF NOT EXISTS labwork1."User_Presentation_Topic"(
 	user_name frozen<labwork1.user_name_type>,
 	user_phone  LIST<frozen<SET<text>>>,
 	user_email text,
@@ -24,7 +29,7 @@ CREATE TABLE IF NOT EXISTS labwork1."Presentation_Server"(
 );
 
 
-CREATE TABLE IF NOT EXISTS labwork1."Presentation"(
+CREATE TABLE IF NOT EXISTS labwork1."Presentation_Participant"(
 	presentation_name text,
 	presentation_date timestamp,
 	
@@ -35,6 +40,17 @@ CREATE TABLE IF NOT EXISTS labwork1."Presentation"(
 	PRIMARY KEY (presentation_name, participant_list)
 );
 
+CREATE TABLE IF NOT EXISTS labwork1."Team_Presentation"(
+    team_member frozen<labwork1.team_member_type>,
+    team_name,
 
-CREATE INDEX p_name on labwork1."Presentation_Server"(presentation_name);
-CREATE INDEX t_name on labwork1."Presentation"(topic_name);
+    presentation_name text,
+    presentation_date timestamp,
+    
+    PRIMARY KEY (team_name, presentation_name)
+);
+
+
+
+CREATE INDEX p_name on labwork1."User_Presentation_Topic"(presentation_name);
+CREATE INDEX p_list on labwork1."Presentation_Participant"(participant_list);
